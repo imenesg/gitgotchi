@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+}
+.top i, .bottom i{
+    font-size: 2rem;
+    margin-inline: .25rem;
+}
+#pet img{
+    width: 1rem;
+}
+#pet i{
+    font-size: 5rem;
+}
+.bottom i{
+    cursor: pointer;
+}
+.bottom i:hover{
+    transform: scale(1.1);
+    transition: all .2s;
+}
+.white{
+    background-color: white;
+}
+.dark{
+    background-color: rgb(68, 68, 68);
+}

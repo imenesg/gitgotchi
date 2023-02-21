@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>PET</title>
+  </head>
+  <body>
+    <div id="app">
+      <div :class="`d-flex flex-column justify-content-center align-items-center container ${returnBg(awake)}`">
+        <div class="top d-flex justify-content-center">
+          <i :class="`bx bxs-heart ${returnClass(love)}`"></i
+          ><i :class="`bx bxs-cookie ${returnClass(satiety)}`"></i
+          ><i :class="`bx bx-plus-medical ${returnClass(health)}`"></i>
+          <i :class="`bx bxs-bolt ${returnClass(energy)}`"></i>
+        </div>
+
+        <div id="pet" class="d-flex justify-content-center aline-itens-center">
+          <img v-if="poop" src="img/coco.svg" alt="" />
+          <i class="bx bxs-cat"></i>
+        </div>
+
+        <div class="bottom mt-3 d-flex justify-content-center">
+          <i @click="playWith()" class="bx bxs-tennis-ball"></i
+          ><i @click="feed()" class="bx bxs-fridge"></i
+          ><i @click="care()" class="bx bxs-capsule"></i>
+          <i @click="bed()" class="bx bxs-bed"></i>
+          <i @click="bath()"class='bx bxs-bath'></i>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>
