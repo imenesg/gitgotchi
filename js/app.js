@@ -25,7 +25,7 @@ createApp({
     showPoop() {
       if (this.satiety > 50 && this.poop == false) {
         let poopInterval = setInterval(() => {
-          if (Math.floor(Math.random() * 10) > 5 ) {
+          if (Math.floor(Math.random() * 10) > 5) {
             this.poop = true;
             clearInterval(poopInterval);
           }
@@ -64,6 +64,19 @@ createApp({
         " energy=",
         this.energy
       );
+
+      localStorage.setItem(
+        "petInfos",
+        JSON.stringify({
+          buttonStatus: this.buttonStatus,
+          love: this.love,
+          satiety: this.satiety,
+          health: this.health,
+          energy: this.energy,
+          awake: this.awake,
+          poop: this.poop,
+        })
+      );
     },
     feed() {
       this.satiety = this.satiety + 10;
@@ -94,8 +107,8 @@ createApp({
     },
     bed() {
       this.awake = !this.awake;
-      
-      this.buttonStatus = !this.buttonStatus
+      this.buttonStatus = !this.buttonStatus;
+      this.setMaxMinAttributes();
       if (this.awake == false) {
         let sleepInterval = setInterval(() => {
           if (this.awake == true) {
@@ -124,6 +137,16 @@ createApp({
     },
   },
   async mounted() {
+    if (localStorage.petInfos) {
+      const localStorageInfos = JSON.parse(localStorage.petInfos);
+      (this.buttonStatus = localStorageInfos.buttonStatus),
+        (this.love = localStorageInfos.love),
+        (this.satiety = localStorageInfos.satiety),
+        (this.health = localStorageInfos.health),
+        (this.energy = localStorageInfos.energy),
+        (this.awake = localStorageInfos.awake),
+        (this.poop = localStorageInfos.poop);
+    }
     this.life();
   },
 }).mount("#app");
