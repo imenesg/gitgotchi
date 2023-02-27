@@ -3,6 +3,7 @@ const { createApp } = Vue;
 createApp({
   data() {
     return {
+      buttonStatus: false,
       love: 50,
       satiety: 50,
       health: 100,
@@ -46,10 +47,12 @@ createApp({
       this.love > 100 ? (this.love = 100) : (this.love = this.love);
       this.satiety > 100 ? (this.satiety = 100) : (this.satiety = this.satiety);
       this.health > 100 ? (this.health = 100) : (this.health = this.health);
+      this.energy > 100 ? (this.energy = 100) : (this.health = this.energy);
 
       this.love < 0 ? (this.love = 0) : (this.love = this.love);
       this.satiety < 0 ? (this.satiety = 0) : (this.satiety = this.satiety);
       this.health < 0 ? (this.health = 0) : (this.health = this.health);
+      this.energy < 0 ? (this.energy = 100) : (this.health = this.energy);
 
       console.table(
         "love=",
@@ -91,6 +94,8 @@ createApp({
     },
     bed() {
       this.awake = !this.awake;
+      
+      this.buttonStatus = !this.buttonStatus
       if (this.awake == false) {
         let sleepInterval = setInterval(() => {
           if (this.awake == true) {

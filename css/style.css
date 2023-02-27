@@ -5,6 +5,10 @@
 }
 .container{
     height: 100vh;
+    margin: unset;
+}
+.modal-button{
+    border: 5px solid #212529;
 }
 .top i, .bottom i{
     font-size: 2rem;
@@ -15,6 +19,12 @@
 }
 #pet i{
     font-size: 5rem;
+}
+.bottom .btn{
+   padding: 0;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .bottom i{
     cursor: pointer;
